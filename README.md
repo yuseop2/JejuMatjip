@@ -1,2 +1,2 @@
-# matjip_teamProject
+# JejuMatjip
 TeamProject
