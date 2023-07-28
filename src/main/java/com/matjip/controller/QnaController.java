@@ -104,25 +104,20 @@ public class QnaController {
 			return "qna/write_success";
 	}
 	
-	/*
-	 * // 답변 달기 - 필요없어짐
-	 * 
-	 * @GetMapping("/qnaReply") public String qnaReply(@RequestParam("qna_idx") int
-	 * qna_idx,
-	 * 
-	 * @ModelAttribute("replyQnaBean") QnaBean replyQnaBean,
-	 * 
-	 * @RequestParam("page") int page, Model model){
-	 * 
-	 * model.addAttribute("page", page);
-	 * 
-	 * QnaBean tmpreplyQnaBean = qnaService.getQnaDetail(qna_idx);
-	 * 
-	 * replyQnaBean.setLev((Integer)tmpreplyQnaBean.getLev()+1);
-	 * replyQnaBean.setParno(tmpreplyQnaBean.getParno());
-	 * 
-	 * System.out.println("답변달기 : "+replyQnaBean); return "qna/qnaReply"; }
-	 */
+	
+	// 답변 달기 - 필요없어짐
+//	@GetMapping("/qnaReply") public String qnaReply(@RequestParam("qna_idx") int qna_idx,
+//													@ModelAttribute("replyQnaBean") QnaBean replyQnaBean,
+//													@RequestParam("page") int page, Model model){
+//	 
+//	 model.addAttribute("page", page);
+//	 
+//	 QnaBean tmpreplyQnaBean = qnaService.getQnaDetail(qna_idx);
+//	 
+//	 replyQnaBean.setLev((Integer)tmpreplyQnaBean.getLev()+1);
+//	 replyQnaBean.setParno(tmpreplyQnaBean.getParno());
+//	 
+//	 System.out.println("답변달기 : "+replyQnaBean); return "qna/qnaReply"; }	
 	
 	// BindingResult는 검증 오류가 발생할 경우 오류 내용을 보관하는 스프링 프레임워크에서 제공하는 객체
 	@PostMapping("/qnaReply_procedure")
@@ -131,18 +126,16 @@ public class QnaController {
 								 @RequestParam("page") int page,
 								 @RequestParam("qna_idx") int qna_idx								
 								 ){
-			
-		System.out.println("프로시져1 : "+replyQnaBean);
-		model.addAttribute("replyQnaBean", replyQnaBean);
 		
-		System.out.println("프로시져2 : "+replyQnaBean);
+		model.addAttribute("replyQnaBean", replyQnaBean);
+		model.addAttribute("qna_idx", qna_idx);
 		model.addAttribute("page", page);
 		
 		if(result.hasErrors()){
 			System.out.println("에러O");
 			System.out.println(result.getAllErrors());
 			
-			return "qna/qnaReply";
+			return "qna/detail?qna_idx="+qna_idx+"&page="+page;
 		}
 			
 			qnaService.addQnaReply(replyQnaBean);

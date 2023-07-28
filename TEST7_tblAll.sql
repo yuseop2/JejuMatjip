@@ -124,9 +124,8 @@ Insert into TEST7.USER_TBL (USER_ID,USER_PW,USER_NAME,USER_PHONE,USER_EMAIL) val
 Insert into TEST7.USER_TBL (USER_ID,USER_PW,USER_NAME,USER_PHONE,USER_EMAIL) values ('user98','1234','일반사용자98','01008594879','user98@gmail.com');
 Insert into TEST7.USER_TBL (USER_ID,USER_PW,USER_NAME,USER_PHONE,USER_EMAIL) values ('user99','1234','일반사용자99','01097952833','user99@gmail.com');
 Insert into TEST7.USER_TBL (USER_ID,USER_PW,USER_NAME,USER_PHONE,USER_EMAIL) values ('user100','1234','일반사용자100','01014964611','user100@gmail.com');
-Insert into TEST7.USER_TBL (USER_ID,USER_PW,USER_NAME,USER_PHONE,USER_EMAIL) values ('tyler','1234','조교행','01047550701','kyohaeng7@naver.com');
+Insert into TEST7.USER_TBL (USER_ID,USER_PW,USER_NAME,USER_PHONE,USER_EMAIL) values ('lys24','1234','이유섭','01033332222','lys24@naver.com');
 --**********USER는 개인 개정 하나 추가로 만드는 걸 추천
-
 
 --/USER
 ---------------------------------------------------------------------------------------------
@@ -160,9 +159,9 @@ Insert into TEST7.REGION (REGION_CATE,REGION_NAME) values ('02','제주');
 --NOTICE
 CREATE TABLE "TEST7"."NOTICE" 
        (	 "NOTI_IDX" NUMBER(20,0), 
-             "NOTI_TITLE" VARCHAR2(100 BYTE), 
-             "NOTI_CONTENT" VARCHAR2(1000 BYTE), 
-             "NOTI_AUTHOR" VARCHAR2(20 BYTE) DEFAULT '관리자', 
+             "NOTI_TITLE" VARCHAR2(100 BYTE) NOT NULL ENABLE, 
+             "NOTI_CONTENT" VARCHAR2(1000 BYTE) NOT NULL ENABLE, 
+             "NOTI_AUTHOR" VARCHAR2(20 BYTE), 
              "NOTI_FILE" VARCHAR2(200 BYTE), 
              "NOTI_REGDATE" DATE DEFAULT current_timestamp,
              PRIMARY KEY ("NOTI_IDX"),
@@ -183,7 +182,7 @@ Insert into TEST7.NOTICE (NOTI_IDX,NOTI_TITLE,NOTI_CONTENT,NOTI_AUTHOR,NOTI_FILE
 CREATE TABLE "TEST7"."QNA" 
        (	 "QNA_IDX" NUMBER(20,0), 
              "QNA_TITLE" VARCHAR2(100 BYTE), 
-             "QNA_CONTENT" VARCHAR2(1000 BYTE), 
+             "QNA_CONTENT" VARCHAR2(1000 BYTE) NOT NULL ENABLE, 
              "QNA_ID" VARCHAR2(20 BYTE), 
              "QNA_RESDATE" DATE DEFAULT current_timestamp, 
              "LEV" NUMBER(5,0), 
@@ -197,9 +196,9 @@ CREATE SEQUENCE QNA_SEQ START WITH 1 INCREMENT BY 1 NOCYCLE;
 
 
 Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글1','질문글1','user41',DEFAULT,1,1,3);
-Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글1 의 답글1','질문글1 의 답글1','user42',DEFAULT,2,2,0);
-Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글1 의 답변글2','질문글1 의 답변글2','user43',DEFAULT,2,2,0);
-Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글1 의 답변글3','질문글1 의 답변글3','user44',DEFAULT,2,2,0);
+Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글1 의 답글1','질문글1 의 답글1','user42',DEFAULT,2,1,0);
+Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글1 의 답변글2','질문글1 의 답변글2','user43',DEFAULT,2,1,0);
+Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글1 의 답변글3','질문글1 의 답변글3','user44',DEFAULT,2,1,0);
 Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글2','질문글2','user45',DEFAULT,1,5,3);
 Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글2 의 답글1','질문글2 의 답글1','user46',DEFAULT,2,5,0);
 Insert into TEST7.QNA (QNA_IDX,QNA_TITLE,QNA_CONTENT,QNA_ID,QNA_RESDATE,LEV,PARNO,REPLY_CNT) values (QNA_SEQ.nextval,'질문글3 의 답글2','질문글3 의 답글2','user47',DEFAULT,2,5,0);

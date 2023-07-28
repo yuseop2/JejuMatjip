@@ -10,21 +10,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>맛집 리스트 글쓰기</title>
   
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="./resources/assets/favicon.ico" />
-
-<!-- CSS (includes Bootstrap) -->
-<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>	  
-  	    
-<!-- Custom styles for this template -->
-<!--<link href="${pageContext.request.contextPath}/resources/css/product.css" rel="stylesheet">-->
-<link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/color-modes.js"></script>
+	<!-- Favicon-->
+	<link rel="icon" type="image/x-icon" href="${root }/resources/assets/favicon.ico" />
+	
+	<!-- CSS (includes Bootstrap) -->
+  <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>	  
+	  	    
+  <!-- Custom styles for this template -->
+  <!--<link href="${pageContext.request.contextPath}/resources/css/product.css" rel="stylesheet">-->
+ 	<link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/color-modes.js"></script>
+	
+	<style>
+	.container-wrap {
+		margin-top: 120px;
+		position: relative;
+		min-height: 100%;
+	    padding-bottom: 250px;
+		bottom:0px;
+	}	
+	.shadow {
+		width: 1000px;
+		text-align: center;
+		display: flex;
+		margin: 0 auto;
+	}
+	</style>
 	
 </head>
 <body>
@@ -96,7 +112,7 @@
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script src="./resources/js/scripts.js"></script>
+<script src="${root }/resources/js/scripts.js"></script>
 
 </body>
 </html>

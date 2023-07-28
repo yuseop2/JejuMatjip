@@ -10,23 +10,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>공지사항</title>
-                
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="./resources/assets/favicon.ico" />
-        
-        <!-- CSS (includes Bootstrap) -->
-        <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>	  
-		  	    
-	    <!-- Custom styles for this template -->
-	    <!--<link href="${pageContext.request.contextPath}/resources/css/product.css" rel="stylesheet">-->
-    	<link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/color-modes.js"></script>
+	<title>공지사항</title>
+	        
+	<!-- Favicon-->
+	<link rel="icon" type="image/x-icon" href="${root }/resources/assets/favicon.ico" />
+	
+	<!-- CSS (includes Bootstrap) -->
+  <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>	  
+	  	    
+  <!-- Custom styles for this template -->
+  <!--<link href="${pageContext.request.contextPath}/resources/css/product.css" rel="stylesheet">-->
+ 	<link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/color-modes.js"></script>
 	
 	<style>
 	.container-wrap {
@@ -35,8 +35,7 @@
 		min-height: 100%;
 	    padding-bottom: 250px;
 		bottom:0px;
-	}
-	
+	}	
 	.shadow {
 		width: 1000px;
 		text-align: center;
@@ -83,8 +82,8 @@
 				<ul class="pagination justify-content-center">
 					
 					<c:choose>
-						<c:when test="${pageBean.prevP <= 0}" >
-							<li class="page-item disabled" id="noPage">								
+						<c:when test="${pageBean.currentP <= 10}" >
+							<li class="visually-hidden" id="noPage">							
 								<a href="#" class="page-link">이전</a>
 							</li>
 						</c:when>
@@ -112,7 +111,7 @@
 								
 					<c:choose>
 						<c:when test="${pageBean.max >= pageBean.pageCnt}">
-							<li class="page-item disabled" id="noPage">
+							<li class="visually-hidden" id="noPage">
 								<a href="#" class="page-link">다음</a>
 							</li>
 						</c:when>
@@ -128,8 +127,7 @@
 			<c:if test="${sid == 'admin'}">
 				<a href="${root}/notice/write?page=${page}" class="btn btn-primary">글쓰기</a>
 			</c:if>
-			</div>
-			
+			</div>			
 		</div>
 	</div>
 </div>

@@ -11,20 +11,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>공지사항 글쓰기</title>
-<!-- Bootstrap CDN -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<script>
-	function checknotice(f){
-		if(f.noti_title.length === 0){
-			alert("제목을 입력하세요.")
-			f.noti.title.focus();
-			return false;
-		}
+	<!-- Favicon-->
+	<link rel="icon" type="image/x-icon" href="${root }/resources/assets/favicon.ico" />
+	
+	<!-- CSS (includes Bootstrap) -->
+	<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>	  
+	  	    
+	   <!-- Custom styles for this template -->
+	<!--<link href="${pageContext.request.contextPath}/resources/css/product.css" rel="stylesheet">-->
+	<link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/color-modes.js"></script>
+	<style>
+	.container-wrap {
+		margin-top: 120px;
+		position: relative;
+		min-height: 100%;
+	    padding-bottom: 250px;
+		bottom:0px;
 	}
-</script>
+	
+	.shadow {
+		width: 1000px;
+		display: flex;
+		margin: 0 auto;
+	}
+	</style>
 </head>
 <body>
 
@@ -33,8 +49,7 @@
 
 <div class="container" style="margin-top:100px">
 	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6">
+		<div class="col-sm-12">
 			<div class="card shadow">
 				<div class="card-body">
 					<form:form action="${root}/notice/write_procedure" method="post" 

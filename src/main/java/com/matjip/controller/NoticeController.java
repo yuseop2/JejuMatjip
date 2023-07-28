@@ -81,8 +81,6 @@ public class NoticeController {
 								 BindingResult result, Model model, 
 								 @RequestParam("page") int page){
 	
-		System.out.println("컨트롤러 : "+writeNoticeBean.getNoti_author());
-
 		model.addAttribute("page", page);
 		if(result.hasErrors()){
 			System.out.println("에러O");
