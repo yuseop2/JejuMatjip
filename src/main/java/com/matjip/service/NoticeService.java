@@ -3,19 +3,15 @@ package com.matjip.service;
 import java.io.File;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.matjip.bean.NoticeBean;
 import com.matjip.bean.PageBean;
-import com.matjip.bean.UserBean;
 import com.matjip.dao.NoticeDAO;
 
 @Service
@@ -24,11 +20,6 @@ public class NoticeService{
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
-	
-	// Session Scope 에 있는 UserBean 객체 주입받아야함
-	@Resource(name = "loginUserBean")
-	@Lazy
-	private UserBean loginUserBean;
 	
 	// 파일 업로드 경로
 	@Value("${path.upload}")

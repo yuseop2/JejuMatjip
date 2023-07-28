@@ -3,6 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">
+	
+	<select id="checkExistUser" parameterType="com.matjip.bean.UserBean" 
+	                               resultType="com.matjip.bean.UserBean" >
+		<![CDATA[
+	         SELECT * FROM user_tbl 
+	  	     WHERE user_id = #{user_id} and user_pw = #{user_pw}
+	    ]]>  
+	</select> 
+	
 	<select id="checkUserIdExist" parameterType="java.lang.String" resultType="java.lang.String">
 		<![CDATA[
 			select user_name from user_tbl where user_id = #{user_id}
@@ -15,15 +24,7 @@
 	         SELECT user_id, user_name FROM user_tbl 
 	  	     WHERE user_id = #{user_id} and user_pw = #{user_pw}
 	    ]]>  
-	</select> 
-	
-	<select id="checkExistUser" parameterType="com.matjip.bean.UserBean" 
-	                                 resultType="com.matjip.bean.UserBean" >
-		<![CDATA[
-	         SELECT * FROM user_tbl 
-	  	     WHERE user_id = #{user_id} and user_pw = #{user_pw}
-	    ]]>  
-	</select> 
+	</select> 	
 	
 	<insert id="insertUser" parameterType="com.matjip.bean.UserBean">
 		<![CDATA[

@@ -12,11 +12,13 @@ public class UserService {
 	@Autowired
 	private UserDAO userDAO;
 	
+	//로그인시 유저 ID와 비밀번호 확인
 	public UserBean checkExistUser(UserBean loginUserInfo) {
 		UserBean loggedUserInfo = userDAO.checkExistUser(loginUserInfo);
 		return loggedUserInfo;
 	}
 	
+	//회원가입시 ID 중복 확인
 	public String checkUserIdExist(String user_id) {
 		String user_name = userDAO.checkUserIdExist(user_id);
 		String result = "1";				//	1은 아이디 있음

@@ -97,5 +97,9 @@ public class RestDAO {
 	public List<RegionBean> getRegionTable() {
 		return sqlSessionTemplate.selectList("restaurant.getRegionTable");
 	}
+	
+	public List<RestBean> getRestTop3(){
+		return sqlSessionTemplate.selectList("restaurant.getRestTop3");
+	}
 
 }

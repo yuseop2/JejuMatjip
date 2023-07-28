@@ -94,7 +94,7 @@ drop table review;
 
 drop SEQUENCE REST_SEQ;
 drop table qna_reply;
-select * from restaurant;
+select * from qna;
 
 -- SELECT * FROM qna GROUP BY 
 SELECT * FROM qna ORDER BY parno DESC, lev ASC, qna_idx DESC;

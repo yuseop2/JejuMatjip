@@ -50,30 +50,31 @@ public class QnaController {
 		return "qna/main";
 	}
 	
-	@GetMapping("/detail")
-	public String qnaDetail(@RequestParam("qna_idx") int qna_idx,
-							@RequestParam("page") int page,	Model model){
-		
-		model.addAttribute("qna_idx", qna_idx);
-				
-		// 게시글 리스트 가져오기
-		List<QnaBean> qnaReplyList = qnaService.getQnaReplyList(page);
-		
-		// DB 로부터 받아온 게시글 리스트(ContentBean 객체들이 저장된 ArrayList 객체)를
-		// requestScope 에 contentList 라는 이름으로 올림
-		model.addAttribute("qnaReplyList", qnaReplyList);		
-					
-		// 상세페이지에 출력할 데이터 가져오기
-		QnaBean qnaDetailBean = qnaService.getQnaDetail(qna_idx);
-		model.addAttribute("qnaDetailBean", qnaDetailBean);
-		
-		// SessionScope 에 있는 정보를 loginUserBean 에 넣기
-		// model.addAttribute("loginUserBean", loginUserBean);
-		
-		model.addAttribute("page", page);
-		
-		return "qna/detail";
-	}
+	 @GetMapping("/detail")
+   public String qnaDetail(@ModelAttribute("replyQnaBean") QnaBean replyQnaBean,  		 										 
+                           @RequestParam("qna_idx") int qna_idx,
+                           @RequestParam("page") int page, Model model){
+      
+      model.addAttribute("qna_idx", qna_idx);
+            
+      // 게시글 리스트 가져오기
+      List<QnaBean> qnaReplyList = qnaService.getQnaReplyList(page);
+      
+      // DB 로부터 받아온 게시글 리스트(ContentBean 객체들이 저장된 ArrayList 객체)를
+      // requestScope 에 contentList 라는 이름으로 올림
+      model.addAttribute("qnaReplyList", qnaReplyList);      
+               
+      // 상세페이지에 출력할 데이터 가져오기
+      QnaBean qnaDetailBean = qnaService.getQnaDetail(qna_idx);
+      model.addAttribute("qnaDetailBean", qnaDetailBean);
+      
+      // SessionScope 에 있는 정보를 loginUserBean 에 넣기
+      // model.addAttribute("loginUserBean", loginUserBean);
+      
+      model.addAttribute("page", page);
+      
+      return "qna/detail";
+   }
 	
 	@GetMapping("/write")
 	public String qnaWrite(@ModelAttribute("writeQnaBean") QnaBean writeQnaBean,
@@ -102,22 +103,26 @@ public class QnaController {
 			System.out.println("에러X");
 			return "qna/write_success";
 	}
-	// 답변 달기
-	@GetMapping("/qnaReply")
-	public String qnaReply(@RequestParam("qna_idx") int qna_idx,
-						   @ModelAttribute("replyQnaBean") QnaBean replyQnaBean,
-						   @RequestParam("page") int page, Model model){
-		
-		model.addAttribute("page", page);
-		
-		QnaBean tmpreplyQnaBean = qnaService.getQnaDetail(qna_idx);				
-		
-		replyQnaBean.setLev((Integer)tmpreplyQnaBean.getLev()+1);
-		replyQnaBean.setParno(tmpreplyQnaBean.getParno());
-					
-		System.out.println("답변달기 : "+replyQnaBean);				
-		return "qna/qnaReply";
-	}
+	
+	/*
+	 * // 답변 달기 - 필요없어짐
+	 * 
+	 * @GetMapping("/qnaReply") public String qnaReply(@RequestParam("qna_idx") int
+	 * qna_idx,
+	 * 
+	 * @ModelAttribute("replyQnaBean") QnaBean replyQnaBean,
+	 * 
+	 * @RequestParam("page") int page, Model model){
+	 * 
+	 * model.addAttribute("page", page);
+	 * 
+	 * QnaBean tmpreplyQnaBean = qnaService.getQnaDetail(qna_idx);
+	 * 
+	 * replyQnaBean.setLev((Integer)tmpreplyQnaBean.getLev()+1);
+	 * replyQnaBean.setParno(tmpreplyQnaBean.getParno());
+	 * 
+	 * System.out.println("답변달기 : "+replyQnaBean); return "qna/qnaReply"; }
+	 */
 	
 	// BindingResult는 검증 오류가 발생할 경우 오류 내용을 보관하는 스프링 프레임워크에서 제공하는 객체
 	@PostMapping("/qnaReply_procedure")

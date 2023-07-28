@@ -60,9 +60,7 @@ public class NoticeController {
 		// 상세페이지에 출력할 데이터 가져오기
 		NoticeBean noticeDetailBean = noticeService.getNotiDetail(noti_idx);
 		model.addAttribute("noticeDetailBean", noticeDetailBean);
-		
-		// SessionScope 에 있는 정보를 loginUserBean 에 넣기
-		model.addAttribute("loginUserBean", loginUserBean);
+			
 		model.addAttribute("page", page);
 		
 		return "notice/detail";

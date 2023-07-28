@@ -6,33 +6,33 @@
 <c:set var="root" value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Jeju Matzip_Login</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="${root }resources/assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="${root }resources/css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- TOP MENU - Responsive navbar-->
-        <c:import url="/WEB-INF/views/include/top_menu.jsp" />
-        <!-- Page Content-->
-        <div class="container px-4 px-lg-5">
-            <!-- Heading Row-->
-            <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6">
+	<head>
+  	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Jeju Matzip_Login</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="${root }resources/assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="${root }resources/css/styles.css" rel="stylesheet" />
+	</head>
+  <body>
+    <!-- TOP MENU - Responsive navbar-->
+    <c:import url="/WEB-INF/views/include/top_menu.jsp" />
+    <!-- Page Content-->
+    <div class="container px-4 px-lg-5">
+	    <!-- Heading Row-->
+	    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+	      <div class="col-lg-3"></div>
+	      <div class="col-lg-6">
 					<div class="card shadow">
 						<div class="card-body">
-						    <c:if test="${requestScope.fail == true }">
-							<div class="alert alert-danger">
-								<h3>로그인 실패</h3>
-								<p>아이디 비밀번호를 확인해주세요</p>
-							</div>
+					    <c:if test="${requestScope.fail == true }">
+								<div class="alert alert-danger">
+									<h3>로그인 실패</h3>
+									<p>아이디 비밀번호를 확인해주세요</p>
+								</div>
 							</c:if>
 							<form:form action="${root }user/login_procedure" method="post" modelAttribute="loginUserInfo">
 								<div class="form-group">
@@ -53,14 +53,14 @@
 						</div>
 					</div>
 				</div>
-                <div class="col-lg-3"></div>
-            </div>
-        </div>
-       <!-- Footer-->
-        <c:import url="/WEB-INF/views/include/bottom_menu.jsp" />
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="${root }resources/js/scripts.js"></script>
-    </body>
+		  	<div class="col-lg-3"></div>
+			</div>
+		</div>
+<!-- Footer-->
+<c:import url="/WEB-INF/views/include/bottom_menu.jsp" />
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="${root }resources/js/scripts.js"></script>
+	</body>
 </html>

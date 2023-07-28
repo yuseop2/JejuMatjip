@@ -42,15 +42,14 @@ public class UserController {
 			fail = true;
 			model.addAttribute("fail", fail);
 			return "user/login";
-		}
-		
+		}		
 
 		// 로그인 성공한 경우 처리하는 부분
-		UserBean ifSuccess = userService.checkExistUser(loginUserInfo);
+		UserBean loggedUserInfo = userService.checkExistUser(loginUserInfo);
 		//	System.out.println(ifSuccess.user_id);
-		if(ifSuccess != null) {
+		if(loggedUserInfo != null) {
 			HttpSession session = request.getSession();
-			String sid = ifSuccess.getUser_id();	
+			String sid = loggedUserInfo.getUser_id();	
 			session.setAttribute("sid", sid);
 			return "user/login_success";
 		} else {
@@ -76,9 +75,7 @@ public class UserController {
 	@PostMapping("/join_procedure")
 	public String joinProcedure(@ModelAttribute("joinUserBean") UserBean joinUserBean,
 								Model model, BindingResult result) {
-		
-		
-		
+				
 		if(result.hasErrors()) {
 			return "user/join_fail";
 		}

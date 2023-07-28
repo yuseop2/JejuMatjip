@@ -209,5 +209,9 @@ public class RestService {
 	public List<RegionBean> getRegionTable() {
 		return restDAO.getRegionTable();
 	}
+	
+	public List<RestBean> getRestTop3(){
+		return restDAO.getRestTop3();
+	}
 
 }
