@@ -100,6 +100,11 @@
 **WAS**
 
     Apache Tomcat9
+
+## ERD
+***
+  ![ERD](https://github.com/yuseop2/JejuMatjip/assets/126748530/878b8e38-972e-4e6b-ab86-7955b2f8380d)
+***
     
 
 
