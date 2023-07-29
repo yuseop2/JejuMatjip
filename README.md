@@ -108,19 +108,25 @@
 ## 기술스택
 ***
 **Frontend**
+
     HTML5, CSS3, JavaScript, JQuery, Ajax, bootstrap(4.1.0)
 
 **Backend**
+
     Java(Jdk11), JSP, Spring Legacy
 
 **Library**
+
     JSTL, lombok, Mybatis 
 
 **DB**
+
     Oracle
 
 **WAS**
+
     Apache Tomcat9
+    
 #
 ## 최종 산출물
 ***
