@@ -2,11 +2,9 @@ package com.matjip.controller;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.matjip.bean.NoticeBean;
 import com.matjip.bean.PageBean;
-import com.matjip.bean.UserBean;
 
 import com.matjip.service.NoticeService;
 
@@ -28,11 +25,7 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
-	
-	@Resource(name = "loginUserBean")
-	@Lazy
-	private UserBean loginUserBean;
-	
+		
 	@GetMapping("/main")
 	public String notice(@RequestParam(value="page", defaultValue = "1") int page,
 						 Model model){

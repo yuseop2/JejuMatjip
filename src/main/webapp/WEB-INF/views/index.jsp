@@ -195,7 +195,7 @@
        <div class="col-lg-4">
         <img src="${root}resources/upload/${restTop3List.rs_file}" style width="300" height="200" >
         <h2 style="margin-top: 10px;" >${restTop3List.rs_name }</h2>
-        <p>${restTop3List.rs_content } style height=</p>
+        <p>${restTop3List.rs_content } </p>
         <p><a class="btn btn-secondary" href="${root}restaurant/detail?rs_idx=${restTop3List.rs_idx}" role="button">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
     </c:forEach>
@@ -208,7 +208,7 @@
 	   <hr class="featurette-divider">
 	   <div class="row featurette">
 	      <div class="col-md-7">
-	         <h2 class="featurette-heading fw-normal lh-1">${list[0].region_name }시 ${list[0].food_name }점 최신 리스트</h2>
+	         <h2 class="featurette-heading fw-normal lh-1">${list[0].region_name }시 ${list[0].food_name } 맛집 최신 리스트</h2>
 	      <table class="table table-hover" id='restList'>
 	         <thead>
 	            <div class="list-group w-auto">
