@@ -79,31 +79,6 @@
 ***
 ![JejuMatjip_video ](https://github.com/yuseop2/JejuMatjip/assets/126748530/1c7ca245-f45d-40b3-83f1-0fcad4dd1826)
 ***
-#
-## 일정계획서(WBS)
-***
-
-#
-## UI 설계서
-***
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-#
-## DB 설계
-***
-
-#
-## ERD
-***
-
-#
-## Class Diagram
-![]()
-#
 ## 기술스택
 ***
 **Frontend**
@@ -126,14 +101,7 @@
 
     Apache Tomcat9
     
-#
-## 최종 산출물
-***
-### 최종발표 PPT
-[JejuMatjipProject_20230728.pptx](https://github.com/~)
-![슬라이드1](/.PNG)
-![슬라이드2](/.PNG)
-![슬라이드3](/.PNG)
+
 
 
 
