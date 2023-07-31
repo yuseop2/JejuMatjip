@@ -3,20 +3,19 @@
 ***
     제주맛집(JejuMatjip)
 ####
-    '제주맛집(JejuMatjip)'은 제주도(제주시, 서귀포) 내
-    관광객들의 리뷰를 통해 추천되는 '맛집'에 대한
-    정보를 공유하는 온라인 커뮤니티입니다.
-#
+    '제주맛집(JejuMatjip)'은 제주도(제주시, 서귀포) 내 관광객들의 
+    리뷰를 통해 추천되는 '맛집'에 대한 정보를 공유하는 온라인 커뮤니티입니다.
 
+#
 ## 팀원소개
 ***
-    조교행(PM), 이상혁, 허준, 이유섭, 김세종, 이다영
+    조교행(PM), 이유섭, 이상혁, 허준, 김세종, 이다영
 #
 ## 프로젝트 기간
 ***
     2023.07. 17. ~ 2023.07.28(약 2주 소요)
-#
 
+#
 ## 프로젝트 설명
 ***
 #### 프로젝트 목표
@@ -79,19 +78,46 @@
 ***
 ![JejuMatjip_video ](https://github.com/yuseop2/JejuMatjip/assets/126748530/1c7ca245-f45d-40b3-83f1-0fcad4dd1826)
 ***
+
+#
+## 일정계획서(WBS)
+***
+![WBS_01](/included/WBS.jpg)<br>
+
+#
+## DB 설계
+***
+![DBMS_01](/included/DB_Structure_01.jpg)<br>
+![DBMS_02](/included/DB_Structure_02.jpg)<br>
+![DBMS_03](/included/DB_Structure_03.jpg)<br>
+
+#
+## ERD
+***
+![ERD](/included/ERD.png)<br>
+
+#
 ## 기술스택
 ***
 **Frontend**
 
-    HTML5, CSS3, JavaScript, JQuery, Ajax, bootstrap(4.1.0)
+    HTML5, CSS3, JavaScript, JQuery(Ajax), bootstrap(5.2.3)
+
+**IDE**
+
+    STS(3.9.11.RELEASE)
 
 **Backend**
 
-    Java(Jdk11), JSP, Spring Legacy
+    Java(TM) SE Runtime Environment 18.9 (build 11.0.20+9-LTS-256)
 
 **Library**
 
-    JSTL, lombok, Mybatis 
+    Spring Framework(5.2.2.RELEASE), Lombok, MyBatis, Log4JDBC, HikariCP(2.7.4), Jakarta(2.0.2)
+
+**Backend-Dependency Manager**
+
+    Maven
 
 **DB**
 
@@ -101,12 +127,56 @@
 
     Apache Tomcat9
 
-## ERD
+#
+## 주요기능
 ***
-  ![ERD](https://github.com/yuseop2/JejuMatjip/assets/126748530/878b8e38-972e-4e6b-ab86-7955b2f8380d)
+### 로그인
+    Jakarta의 HttpServletRequest, HttpSession을 이용해 로그인 후 세션을 유지했습니다.
+
+    Header의 우측 <로그인>, <회원가입>은 로그인 후 <정보수정>, <로그아웃> 으로 변경됩니다.
+    관리자(Admin) 로그인 시 <Admin> 표기와 <로그아웃>으로 변경됩니다.
+
+    정보수정에서는 개인 계정에 대한 내용을 확인하고, 탈퇴 시 기존에 작성한 모든 게시글이 삭제되는 점을
+    스크립트로 알럿을 주고, 동의 확인 후 탈퇴 가능합니다.
+    <회원가입>을 통한 가입/재가입이 가능합니다.
+
+    각 게시글(맛집 상세, 공지사항, QnA 등)은 로그인 user의 세션ID와 작성자가 동일하거나
+    혹은 관리자인 조건에서만 수정/삭제 기능 사용하도록 구현되었습니다.
+    비회원은 게시글 열람이 가능하나 게시글 등록/수정/삭제를 시도할 경우에 로그인을 요청합니다.
+
+#
+### 맛집리스트보기
+    셀렉트 태그로 지역과 음식 카테를 필터링하여 리스트를 불러올 수 있도록 스크립트처리 하였습니다.
+    맛집리스트에 경우 관리자만 업체를 등록할 수 있으며 또한 관리자만 수정 및 삭제가 가능합니다.
+    Mybatis Rowbound 이용하여 페이징 처리하였습니다.
+    Jakarta의 Valildation 클래스를 사용하여 최댓값, 최솟값, 크기와 같은 유효성 검증을 진행하였습니다.
+
+#
+### 리뷰
+    관광객(user)들이 맛집에 대한 후기를 작성할 수 있습니다.
+    맛집리스트보기 - 상세보기에서 각 맛집별로 작성된 리뷰를 열람하실 수 있습니다.
+    로그인 시 자신이 작성한 리뷰 목록을 상단 헤더에 위치한 '나의 리뷰' 탭에서 열람, 수정, 삭제할 수 있습니다.
+    Mybatis Rowbound 이용하여 페이징 처리하였습니다.
+    Jakarta의 Valildation 클래스를 사용하여 최댓값, 최솟값, 크기와 같은 유효성 검증을 진행하였습니다.
+
+#
+### 공지사항
+    제주맛집 운영에 관한 공지나 주요정보 알림을 관리자에 의해 게시하고 관리합니다.
+    관리자(admin)만 게시글 등록, 수정, 삭제가 가능하고, 비회원과 회원은 게시글 조회만 가능합니다.       
+    Mybatis Rowbound 이용하여 페이징 처리하였습니다.
+    Jakarta의 Valildation 클래스를 사용하여 최댓값, 최솟값, 크기와 같은 유효성 검증을 진행하였습니다.
+
+#
+### QnA    
+    질문글에 답변글이 달릴경우 '답글 수(reply_cnt)'의 숫자가 +1 카운팅되고
+    질문글에 답변글이 삭제 될 경우 '답글 수(reply_cnt)'의 숫자가 -1 카운팅됩니다.
+    질문글 상세 보기를 할 경우 해당글의 답변글은 같은 글 그룹번호(parno)로 묶여서 함께 보여지고,
+    질문글이 삭제 될 경우 같은 그룹의 답변글도 자동 삭제 됩니다.   
+    Mybatis Rowbound 이용하여 페이징 처리하였습니다.
+    Jakarta의 Valildation 클래스를 사용하여 최댓값, 최솟값, 크기와 같은 유효성 검증을 진행하였습니다.
+
+#
+## 최종 산출물
 ***
-    
-
-
-
-
+### 최종발표 PPT
+[JejuMatjipProject.pptx](/included/JejuMatjipProject.pptx)<br>
