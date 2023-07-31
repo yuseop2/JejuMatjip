@@ -51,11 +51,17 @@ public class ReviewController {
 	
 	@GetMapping("/detail")
 	public String reviewDetail(@RequestParam int rev_idx,
-			@RequestParam int myPage,
-			Model model) {
+      										 	 @RequestParam(defaultValue = "0") int myPage,
+                      			 @RequestParam(defaultValue = "0") int rs_idx,
+                      			 @RequestParam(defaultValue = "0") int page,
+                      			 @RequestParam(defaultValue = "0") int revPage,
+                      			 Model model) {
 		ReviewBean reviewBean = reviewService.reviewByRevIdx(rev_idx);
 		model.addAttribute("reviewBean", reviewBean);
 		model.addAttribute("myPage", myPage);
+		model.addAttribute("rs_idx", rs_idx);
+		model.addAttribute("page", page);
+		model.addAttribute("revPage", revPage);
 		return "review/template";
 	}
 

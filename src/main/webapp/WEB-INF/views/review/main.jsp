@@ -8,25 +8,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>리뷰</title>
-                
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="./resources/assets/favicon.ico" />
-        
-        <!-- CSS (includes Bootstrap) -->
-        <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>     
-               
-       <!-- Custom styles for this template -->
-       <!--<link href="${pageContext.request.contextPath}/resources/css/product.css" rel="stylesheet">-->
-       <link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/color-modes.js"></script>
+     <title>나의 리뷰</title>
+             
+     <!-- Favicon-->
+     <link rel="icon" type="image/x-icon" href="./resources/assets/favicon.ico" />
+     
+     <!-- CSS (includes Bootstrap) -->
+     <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>     
+            
+    <!-- Custom styles for this template -->
+    <!--<link href="${pageContext.request.contextPath}/resources/css/product.css" rel="stylesheet">-->
+    <link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+     <script src="${pageContext.request.contextPath}/resources/js/color-modes.js"></script>
    
-   <style>
+  <!--  <style>
       .container-wrap {
          margin-top: 120px;
          position: relative;
@@ -41,7 +41,7 @@
          display: flex;
          margin: 0 auto;
       }
-   </style>
+   </style> -->
 
 </head>
 <body>
@@ -49,8 +49,10 @@
    <!-- Header -->
    <c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
 
-   <!-- 게시글 리스트 -->
-   <div class="container" style="margin-top:100px; height: auto;">
+ <!-- 내 리뷰 리스트-->
+ <div class="container" style="margin-top:100px">
+	<div class="row">
+		<div class="col-sm-12">
       <div class="card shadow">
          <div class="card-body">
             <h3 class="card-title"><strong>내가 작성한 리뷰</strong></h3>
@@ -124,6 +126,8 @@
                      </c:otherwise>
                   </c:choose>
                </ul>
+               </div>
+              </div> 
             </div>
          </div>
       </div>

@@ -171,7 +171,8 @@ public class RestController {
 		
 		PageBean revPageBean = reviewService.getReviewCntByResId(rs_idx, revPage);
 		model.addAttribute("revPageBean", revPageBean);
-
+		
+		model.addAttribute("revPage", revPage);
 		return "restaurant/detail";
 	}
 

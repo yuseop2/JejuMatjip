@@ -33,9 +33,8 @@
 	<c:import url="/WEB-INF/views/include/top_menu.jsp" />
 	
 	<div class="container" style="margin-top:100px">
-		<div class="row">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6">
+		<div class="row">		
+			<div class="col-sm-12">
 				<div class="card shadow">
 					<div class="card-body">
 						<div class="form-group">
@@ -74,16 +73,22 @@
 							</div>
 						</c:if>	
 						<div class="form-group">
-							<div class="text-right">
-								<a href="${root}/review/main?myPage=${myPage}" class="btn btn-secondary">내 리뷰 목록 보기</a>
-								<a href="${root}/review/updateReview?rev_idx=${reviewBean.rev_idx}&myPage=${myPage}" class="btn btn-warning">수정하기</a>
-								<a href="${root}/review/deleteReview?rev_idx=${reviewBean.rev_idx}&myPage=${myPage}" class="btn btn-danger">삭제하기</a>
+							<div class="text-right">								
+								<c:if test="${myPage != 0 }">
+									<a href="${root}/review/main?myPage=${myPage }" class="btn btn-secondary">내 리뷰 목록 보기</a>
+								</c:if>
+								<c:if test="${myPage == 0 }">
+									<a href="${root }/restaurant/detail?rs_idx=${rs_idx }&page=${page }&revPage=${revPage }" class="btn btn-secondary">맛집 상세보기로 가기</a>
+								</c:if>
+								<c:if test="${reviewBean.rev_id.equals(sid) || sid.equals('admin') }">
+									<a href="${root}/review/updateReview?rev_idx=${reviewBean.rev_idx}&myPage=${myPage}" class="btn btn-warning">수정하기</a>
+									<a href="${root}/review/deleteReview?rev_idx=${reviewBean.rev_idx}&myPage=${myPage}" class="btn btn-danger">삭제하기</a>
+								</c:if>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-3"></div>
+			</div>			
 		</div>
 	</div>
 	<script>

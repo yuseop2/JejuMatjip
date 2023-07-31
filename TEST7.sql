@@ -22,6 +22,7 @@ CREATE TABLE notice (noti_idx NUMBER(20) PRIMARY KEY NOT NULL,   --공지사항i
                      noti_file VARCHAR2(200),                    -- 첨부파일
                      noti_regdate date DEFAULT current_timestamp -- 작성일                                 
 );
+
 -- noti SEQ
 CREATE SEQUENCE NOTI_SEQ START WITH 1 INCREMENT BY 1 NOCYCLE;
 

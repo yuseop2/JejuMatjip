@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>공지사항 글쓰기</title>
+	<title>QnA 글쓰기</title>
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="${root }/resources/assets/favicon.ico" />
 	
@@ -27,7 +27,7 @@
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/color-modes.js"></script>
 	
-	<style>
+	<!-- <style>
 	.container-wrap {
 		margin-top: 120px;
 		position: relative;
@@ -41,7 +41,7 @@
 		display: flex;
 		margin: 0 auto;
 	}
-	</style>
+	</style> -->
 </head>
 <body>
 
@@ -50,8 +50,7 @@
 
 <div class="container" style="margin-top:100px">
 	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6">
+		<div class="col-sm-12">
 			<div class="card shadow">
 				<div class="card-body">
 					<form:form action="${root}/qna/write_procedure" method="post" modelAttribute="writeQnaBean" >
@@ -79,8 +78,7 @@
 					</form:form>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-3"></div>
+		</div>		
 	</div>
 </div>
 <!-- Footer-->
